@@ -35,6 +35,5 @@ public class MovitaStepDefinitions {
        Assert.assertTrue(movita.mainTextTurkish.isDisplayed());
     }
 
-    //deneme
-    // Alkan Tuncer Deneme
+   //Hüseyin Kartal deneme 10.34
 }
