@@ -35,6 +35,6 @@ public class MovitaStepDefinitions {
        Assert.assertTrue(movita.mainTextTurkish.isDisplayed());
     }
 
-   //Hüseyin Kartal deneme 10.34
+   //Hüseyin Kartal deneme 10:34
     //deneme
 }
