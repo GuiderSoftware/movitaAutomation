@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,7 +18,8 @@ public class MovitaStepDefinitions {
 
     @Given("User navigates to {string} page")
     public void user_navigates_to_page(String homePage) {
-        Driver.getDriver().get(ConfigurationReader.getProperty(homePage));
+        //Driver.getDriver().get(ConfigurationReader.getProperty(homePage));
+        Driver.getDriver().get("http://movita.com.tr:9045/");
     }
     @When("clicks on movita logo")
     public void clicks_on_movita_logo() {
@@ -152,5 +154,92 @@ public class MovitaStepDefinitions {
         Assert.assertEquals(expKisiVeNesneText,"KIŞI VE NESNE/HAYVAN TAKIP SISTEMI");
     }
 
+    @Then("User clicks girisYapFirst button")
+    public void userClicksGirisYapFirstButton() {
+        movita.girisYapFirst.click();
+    }
 
+
+    @Then("user enters the username and password")
+    public void userEntersTheUsernameAndPassword() {
+        movita.userName.sendKeys("demomovita");
+        movita.passWord.sendKeys("movita1192");
+    }
+
+    @Then("User clicks girisYapSecond button")
+    public void userClicksGirisYapSecondButton() {
+        movita.girisYapSecond.click();
+    }
+
+    @Then("user should be login main page")
+    public void userShouldBeLoginMainPage() {
+        movita.logo.isDisplayed();
+    }
+
+    @Then("menus available should display on the left side of the screen")
+    public void menusAvailableShouldDisplayOnTheLeftSideOfTheScreen() {
+        movita.menu.isDisplayed();
+    }
+
+    @Then("map should display in the middle")
+    public void mapShouldDisplayInTheMiddle() {
+        movita.map.isDisplayed();
+    }
+
+    @Then("summary information should display covering total vehicles")
+    public void summaryInformationShouldDisplayCoveringTotalVehicles() {
+        //movita.vehicles.isDisplayed();
+    }
+
+
+    @Then("Anasayfa \\(filo_admin) submenus should be opened")
+    public void anasayfaFilo_adminSubmenusShouldBeOpened() {
+
+    }
+
+    @And("Raporlar submenus should be opened")
+    public void raporlarSubmenusShouldBeOpened() {
+    }
+
+    @And("Araç Rota submenus should be opened")
+    public void araçRotaSubmenusShouldBeOpened() {
+    }
+
+    @And("Araç Video-Fotoğraf submenus should be opened")
+    public void araçVideoFotoğrafSubmenusShouldBeOpened() {
+    }
+
+    @And("Güzergah İslemleri submenus should be opened")
+    public void güzergahİslemleriSubmenusShouldBeOpened() {
+    }
+
+    @And("Alarm Islemleri submenus should be opened")
+    public void alarmIslemleriSubmenusShouldBeOpened() {
+    }
+
+    @And("Rota islemleri submenus should be opened")
+    public void rotaIslemleriSubmenusShouldBeOpened() {
+    }
+
+    @And("Personel İslemleri submenus should be opened")
+    public void personelİslemleriSubmenusShouldBeOpened() {
+    }
+
+    @And("Yönetim ve Ayarlar submenus should be opened")
+    public void yönetimVeAyarlarSubmenusShouldBeOpened() {
+    }
+
+    @When("User login the main page any main and or subcomponent should not be selected")
+    public void userLoginTheMainPageAnyMainAndOrSubcomponentShouldNotBeSelected() {
+    }
+
+    @When("User hovers over the main components background color should change from white to gray")
+    public void userHoversOverTheMainComponentsBackgroundColorShouldChangeFromWhiteToGray() {
+    }
+
+
+    @Given("User navigates to mainPage page")
+    public void userNavigatesToMainPagePage() {
+        Driver.getDriver().get("http://movita.com.tr");
+    }
 }

@@ -59,4 +59,28 @@ public class MovitaPage {
     @FindBy(xpath = "//h1")
     public WebElement kisiVeNesneText;
 
+
+    @FindBy(xpath = "//*[.=\"GİRİŞ Yap\"]")
+ public WebElement girisYapFirst;
+
+    @FindBy(xpath = "//input[@id='username']")
+ public WebElement userName;
+
+    @FindBy(xpath = "//input[@id='password']")
+ public WebElement passWord;
+
+    @FindBy(xpath = "//button[@type=\"submit\"]")
+    public WebElement girisYapSecond;
+
+    @FindBy(className = "brand-logo")
+    public WebElement logo;
+
+    @FindBy(className = "main-menu menu-fixed menu-light menu-accordion menu-shadow")
+    public WebElement menu;
+
+    @FindBy(className = "gm-style-moc")
+    public WebElement map;
+
+    @FindBy(className = "col-lg-2 col-md-2 text-xs-center")
+    public WebElement vehicles;
 }
