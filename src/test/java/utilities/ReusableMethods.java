@@ -1,8 +1,10 @@
 package utilities;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -18,6 +20,47 @@ import java.util.List;
 import java.util.function.Function;
 
 public class ReusableMethods {
+
+    //========Scrolls to specific element=====//
+    public static void scrollTo(WebDriver driver, WebElement element) {
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView();", element);
+    }
+
+    //CHECKING CHANGING COLORS\\
+    public static void  changingColors(WebElement element, String hexValue) {
+        //checking the first color
+        String originalColor = element.getCssValue("color");
+        String originalHex = Color.fromString(originalColor).asHex();
+
+        //hovering the element
+        ReusableMethods.hover(element);
+        ReusableMethods.waitForClickablility(element, 10);
+
+        //after hovering, turn the css value to hex so i can identify the color.
+        String afterColor = element.getCssValue("color");
+        String afterHex = Color.fromString(afterColor).asHex();
+
+        System.out.println("originalHex = " + originalHex);
+        System.out.println("afterHex = " + afterHex);
+
+        //first, lets try not equals, because it shouldnt be the same colors.
+        Assert.assertNotEquals(originalHex, afterHex);
+
+        //then i should verify the integer value of blue hex color. Which i checked manually (in this case it's blue same as movita page).
+        Assert.assertEquals(afterHex, hexValue);
+
+    }
+
+
+    //SEE THE COMPONENT IF IT DISPLAYED OR NOT\\
+    public static void seeComponent(WebElement component) {
+
+        ReusableMethods.waitForVisibility(component, 10);
+        Assert.assertTrue(component.isDisplayed());
+    }
+
+
 
     public static void screenShot(WebElement Sshot) throws IOException {
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
