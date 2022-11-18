@@ -380,6 +380,14 @@ public class MovitaPage {
 
  @FindBy(xpath = ".//*[text()=\"Sensör Log Raporu\"]")
  public WebElement menuSensorRaporu;
+ //--------------------ibrahim altınok-------------------
+
+ @FindBy(xpath = "//button[@id=\"dropdownMenuButton\"]")
+ public WebElement userClickTheDropdownMenu;
+
+ @FindBy(xpath = "(//a[@class=\"dropdown-item\"])[1]")
+ public WebElement UserClickTheEnglishInTheDropdownMenu;
+
 
 
 
