@@ -1255,8 +1255,8 @@ public class MovitaStepDefinitions extends ReusableMethods {
         String actualText2=waitForVisibility(movita.textMNVR2,3).getText();
         String expectedText1="Mobil Vasıta İzleme Takip Sistemi";
         String expectedText2="movita MNVR ile tüm araçları izleyip, takip edebilirisniz";
-        //Assert.assertTrue(expectedText1.equals(actualText1));
-        //Assert.assertTrue(expectedText2.equals(actualText2));
+        Assert.assertTrue(expectedText1.equals(actualText1));
+        Assert.assertTrue(expectedText2.equals(actualText2));
         System.out.println("actualText1 = " + actualText1);
         System.out.println("actualText2 = " + actualText2);
 
